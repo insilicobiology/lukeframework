@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "luke-uncertainty"
+version = "0.1.0"
+description = "Easy-to-use epistemic uncertainty quantification for tree ensemble explanations"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+    { name = "Your Name", email = "your.email@example.com" }
+]
+dependencies = [
+    "numpy>=1.20.0",
+    "pandas>=1.3.0",
+    "scikit-learn>=1.0.0",
+    "xgboost>=1.5.0",
+    "matplotlib>=3.4.0",
+    "seaborn>=0.11.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/insilicobiology/lukeframework"
+
+[tool.setuptools.packages.find]
+where = ["src"]

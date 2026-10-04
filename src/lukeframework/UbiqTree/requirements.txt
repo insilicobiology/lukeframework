@@ -1,0 +1,13 @@
+ipython==9.3.0
+ipykernel==6.29.5
+jupyter_client==8.6.3
+jupyter_core==5.8.1
+nbformat==5.10.4
+matplotlib-inline==0.1.7
+debugpy==1.8.11
+requests==2.32.3
+tqdm==4.66.4
+jsonschema==4.24.0
+setuptools==72.1.0 
+shap
+numpy
