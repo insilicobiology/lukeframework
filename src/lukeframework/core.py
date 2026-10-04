@@ -10,8 +10,8 @@ from sklearn.base import BaseEstimator, ClassifierMixin, RegressorMixin
 
 # Placeholder imports for underlying uncertainty and plotting modules
 # (to be implemented in uncertainty.py and plotting.py)
-from luke.uncertainty import UBiQTreeUncertaintyWrapper
-from luke.plotting import plot_feature_uncertainty_summary
+from lukeframework.uncertainty import UBiQTreeUncertaintyWrapper
+from lukeframework.plotting import plot_feature_uncertainty_summary
 
 
 class LUKEPipeline:
