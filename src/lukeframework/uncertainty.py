@@ -7,17 +7,22 @@ from typing import Tuple
 import numpy as np
 import pandas as pd
 
-# Safe import cascade for nested UBiQTree repository layout
+# Safe import from the ubiqtree module file inside the package structure
 try:
-    from .UbiqTree.UBiQTree import UBiQTreeCore
+    from lukeframework.UbiqTree.UBiQTree.ubiqtree import UBiQTreeCore
 except ImportError:
     try:
-        from lukeframework.UbiqTree.UBiQTree import UBiQTreeCore
-    except ImportError as e:
-        raise ImportError(
-            "Could not import UBiQTreeCore. Ensure that the UBiQTree repository is placed "
-            "inside 'src/lukeframework/UbiqTree/' and that all nested folders contain an '__init__.py' file."
-        ) from e
+        # Fallback to alternate casing or relative import
+        from .UbiqTree.UBiQTree.ubiqtree import UBiQTreeCore
+    except ImportError:
+        try:
+            # If the class name itself is just UBiQTree or Ubiqtree
+            from lukeframework.UbiqTree.UBiQTree.ubiqtree import UBiQTree as UBiQTreeCore
+        except ImportError as e:
+            raise ImportError(
+                "Could not import UBiQTreeCore from 'ubiqtree.py'. Please check the class name "
+                "defined inside your vendor 'ubiqtree.py' file."
+            ) from e
 
 
 class UBiQTreeUncertaintyWrapper:
@@ -38,14 +43,7 @@ class UBiQTreeUncertaintyWrapper:
         """
         Computes SHAP values and authentic epistemic uncertainty scores
         using the native UBiQTree implementation.
-
-        Args:
-            X: Evaluation feature DataFrame (e.g., patient cohort).
-
-        Returns:
-            A tuple of (shap_values, epistemic_uncertainty_scores).
         """
-        # Call the native method from UBiQTreeCore
         shap_values, uncertainty_scores = self.engine.calculate_uncertainty_shap(X)
 
         return np.array(shap_values), np.array(uncertainty_scores)

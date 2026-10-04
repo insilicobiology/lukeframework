@@ -13,7 +13,7 @@ from sklearn.model_selection import train_test_split
 from xgboost import XGBClassifier
 
 # Import LUKE components from your package
-from src.lukeframework.core import LUKEPipeline
+from lukeframework.core import LUKEPipeline
 
 
 def load_synthetic_or_local_seer_data():
