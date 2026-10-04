@@ -9,10 +9,10 @@ import pandas as pd
 
 # Import the authentic UbiqTree class from the vendor module
 try:
-    from lukeframework.UbiqTree.UBiQTree.ubiqtree import UbiqTree
+    from UbiqTree.UBiQTree import UbiqTree
 except ImportError:
     try:
-        from .UbiqTree.UBiQTree.ubiqtree import UbiqTree
+        from UbiqTree.UBiQTree import UbiqTree
     except ImportError as e:
         raise ImportError(
             "Could not import UbiqTree from 'ubiqtree.py'. Please check the exact "
